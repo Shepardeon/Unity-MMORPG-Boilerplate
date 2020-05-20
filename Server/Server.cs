@@ -334,6 +334,15 @@ namespace Valk.Networking
                     //Logger.Log($"Client '{netEvent.Peer.ID}' disconnected");
                 }
 
+                if (packetID == PacketType.ClientSendChatMessage)
+                {
+                    var name = reader.ReadString();
+                    var mess = reader.ReadString();
+                    var peersToSend = clients.ToArray(); // Temp: Broadcast to everyone for testing purpose
+                    Network.Broadcast(server, Packet.Create(PacketType.ServerRecieveChatMessage, PacketFlags.Reliable, name, mess));
+                    Logger.Log($"'{name}'(id={netEvent.Peer.ID}) sent message '{mess}'");
+                }
+
                 readStream.Dispose();
                 reader.Dispose();
             }

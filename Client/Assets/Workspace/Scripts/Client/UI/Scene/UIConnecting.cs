@@ -25,7 +25,7 @@ namespace Valk.Networking
             if (!ENetClient.IsConnected())
                 return;
 
-            SceneManager.LoadScene("Account Management");
+            SceneManager.LoadScene("Account");
         }
 
         private IEnumerator AnimateDots()

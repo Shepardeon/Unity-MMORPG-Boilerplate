@@ -185,6 +185,14 @@ namespace Valk.Networking
                     Destroy(GameObject.Find($"oClient {id}"));
                     Debug.Log($"Client {id} disconnected");
                 }
+
+                if (packetID == PacketType.ServerRecieveChatMessage) 
+                {
+                    var name = reader.ReadString();
+                    var mess = reader.ReadString();
+
+                    Debug.Log($"<{name}>: {mess}");
+                }
             }
 
             catch (ArgumentOutOfRangeException)

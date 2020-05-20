@@ -145,7 +145,8 @@ namespace Valk.Networking
             if (code == StatusCode.LOGIN_SUCCESS)
             {
                 UpdateText($"Successfully logged into account '{name}'");
-                SceneManager.LoadScene("Account");
+                SceneManager.LoadScene("Connect");
+                ENetClient.myName = name;
                 //StartCoroutine(ASyncLoadGame());
             }
         }

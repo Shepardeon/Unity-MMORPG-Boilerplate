@@ -18,7 +18,9 @@ namespace Valk.Networking
         ServerClientDisconnected,
         ServerClientName,
         ClientRequestNames,
-        ServerInitialPositionUpdate
+        ServerInitialPositionUpdate,
+        ClientSendChatMessage,
+        ServerRecieveChatMessage
     }
 
     enum ErrorType 
